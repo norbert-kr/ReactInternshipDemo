@@ -1,17 +1,23 @@
+import {useAuth} from '../auth/useAuth.jsx';
+
 import { useState, useEffect } from "react";
 import Action from "../UI/Actions.jsx";
 import ModuleForm from "../entity/module/ModuleForm.jsx";
 import { CardContainer } from "../UI/Card.jsx";
 import ModuleCard from "../entity/module/ModuleCard.jsx";
-import "./Modules.scss";
+
 
 function Modules() {
 
 
   // Initialisation  | --------------------------------
-  const apiURL = "https://softwarehub.uk/unibase/api/";
-  const myModulesEndpoint = `${apiURL}modules/`;
 
+  const { loggedInUser } = useAuth();
+
+  const apiURL = "https://softwarehub.uk/unibase/api/";
+  const myModulesEndpoint = loggedInUser.UserUsertypeID === 1 
+    ? `${apiURL}modules/leader/${loggedInUser.UserID}`
+    : `${apiURL}modules/users/${loggedInUser.UserID}`
 
 
   // State           | --------------------------------

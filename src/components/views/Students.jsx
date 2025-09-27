@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
+import { CardContainer } from "../UI/Card.jsx";
+import UserCard from "../entity/user/UserCard.jsx";
 import "./Students.scss";
-import { CardContainer, Card } from "../UI/Card.jsx";
 
 function Students() {
-
-
-  
   // Initialisation  | --------------------------------
   const newStudent = {
     UserFirstname: "Nathan",
@@ -20,12 +18,9 @@ function Students() {
     UserUsertypeName: "student",
     UserYearName: "2022-23",
   };
-
   const loggedInUserGroup = 1;
-  const apiURL = "https://softwarehub.uk/unibase/api";
+  const apiURL = "https://softwarehub.uk/unibase/api/";
   const myGroupEndpoint = `${apiURL}/users/groups/${loggedInUserGroup}`;
-
-
 
   // State           | --------------------------------
   const [students, setStudents] = useState(null);
@@ -40,8 +35,6 @@ function Students() {
     apiGet(myGroupEndpoint);
   }, [myGroupEndpoint]);
 
-
-
   // Handlers        | --------------------------------
   const handleAdd = (student) => {
     student.UserID = Math.floor(10000 * Math.random());
@@ -49,9 +42,8 @@ function Students() {
     console.log(`Length of students: ${students.length}`);
   };
 
-
-
   // View            | --------------------------------
+
   return (
     <>
       <h1>Students</h1>
@@ -61,13 +53,7 @@ function Students() {
         <>
           <CardContainer>
             {students.map((student) => (
-              <div className="studentCard" key={student.UserEmail}>
-                <Card>
-                  <p>{student.UserEmail.substring(0, 8)}</p>
-                  <p>{`${student.UserFirstname} ${student.UserLastname}`}</p>
-                  <img src={student.UserImageURL} />
-                </Card>
-              </div>
+              <UserCard user={student} key={student.UserID} />
             ))}
           </CardContainer>
           <button onClick={() => handleAdd(newStudent)}>Add Student</button>

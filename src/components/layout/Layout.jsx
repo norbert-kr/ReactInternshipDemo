@@ -7,7 +7,7 @@ function Layout(props) {
   return (
     <div className="layout">
       
-      <Header loggedInUser={props.loggedInUser} />
+      <Header />
       <Navbar />
 
       <main>{props.children}</main>

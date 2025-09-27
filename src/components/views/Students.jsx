@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { CardContainer } from "../UI/Card.jsx";
 import UserCard from "../entity/user/UserCard.jsx";
-import "./Students.scss";
+
 
 function Students() {
+  
   // Initialisation  | --------------------------------
   const newStudent = {
     UserFirstname: "Nathan",
@@ -18,6 +19,7 @@ function Students() {
     UserUsertypeName: "student",
     UserYearName: "2022-23",
   };
+
   const loggedInUserGroup = 1;
   const apiURL = "https://softwarehub.uk/unibase/api/";
   const myGroupEndpoint = `${apiURL}/users/groups/${loggedInUserGroup}`;

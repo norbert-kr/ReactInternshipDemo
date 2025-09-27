@@ -4,6 +4,7 @@ import "./Navbar.scss";
 function Navbar() {
   return (
     <nav>
+      {/*1. NAvlink updates the URL based on the clicked nav link*/}
 
       <div className="navItem">
         <NavLink to="/">Home</NavLink>

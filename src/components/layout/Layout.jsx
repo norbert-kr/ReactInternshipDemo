@@ -6,6 +6,7 @@ import "./Layout.scss";
 function Layout(props) {
   return (
     <div className="layout">
+      
       <Header loggedInUser={props.loggedInUser} />
       <Navbar />
 

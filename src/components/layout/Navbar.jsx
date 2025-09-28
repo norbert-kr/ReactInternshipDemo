@@ -1,22 +1,22 @@
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../auth/useAuth";
+import {useAuth} from '../auth/useAuth.jsx';
+
 import "./Navbar.scss";
 
 function Navbar() {
 
-  const { loggedInUser, logout } = useAuth();
+  const {loggedInUser, logout} = useAuth();
 
   return (
     <nav>
-      
+
+
       <div className="navItem">
         <NavLink to="/">Home</NavLink>
       </div>
 
-
-      { 
-        loggedInUser && 
-        (
+      {
+        loggedInUser && ( 
           <>
             <div className="navItem">
               <NavLink to="/modules">Modules</NavLink>
@@ -41,11 +41,13 @@ function Navbar() {
           <div className="navItem">
             <NavLink to="/" onClick={logout}>Logout</NavLink>
           </div>
+          
         )
       }
-
-    </nav>
+    </nav>  
   );
 }
 
 export default Navbar;
+
+

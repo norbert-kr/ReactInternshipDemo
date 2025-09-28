@@ -42,7 +42,7 @@ div.moduleForm {
       }
 
       $Green: #29e7cd; // $cyan
-      $DarkGreen: darken($Green, 10%);
+      $DarkGreen: $Green, 10%;
 
       &:focus {
         border-color: $DarkGreen;
